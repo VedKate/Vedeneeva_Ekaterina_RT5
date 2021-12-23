@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Дом №{{ data.id }}{% endblock %}
+
+{% block content %}
+    <h3>Информация о доме №{{ data.id }}</h3>
+
+    {% load static %}
+        {% if data.id == 1 %}
+            <img src="{% static "imgs/1.jpg" %}" alt="Image Description">
+            <p>Тип постройки: избушка </p>
+            <p>Информация о бывшем владельце: Ядвига Кощеевна Костяная</p>
+            <p>Особенности: кроткий характер </p>
+        {% elif data.id == 2 %}
+            <img src="{% static "imgs/2.jpg" %}" alt="Image Description">
+            <p>Тип постройки: замок </p>
+            <p>Информация о бывшем владельце: Королева Червей</p>
+            <p>Особенности: много голов в интерьере </p>
+        {% else %}
+            <img src="{% static "imgs/3.jpg" %}" alt="Image Description">
+            <p>Тип постройки: постройка времен Ивана Грозного </p>
+            <p>Информация о бывшем владельце: -------</p>
+            <p>Особеннcоти: подземные уровни </p>
+        {% endif %}
+
+    <form action="http://127.0.0.1:8000/" method="get" target="_self">
+        <button type="submit">На главную</button>
+    </form>
+
+{% endblock %}
