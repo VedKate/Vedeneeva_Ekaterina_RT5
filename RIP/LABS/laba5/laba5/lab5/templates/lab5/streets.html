@@ -1,0 +1,17 @@
+{% extends 'lab5\\base.html' %}
+{% load static %}
+
+{% block title %}Улицы{% endblock %}
+
+{% block content %}
+<ul>
+    {% for street in data.streets %}
+        <li><a href="{% url 'street_url' street.idStreet %}">{{ street.StreetName }}</a> </li>
+        <ul>
+            <li>Город: {{street.City}}</li>
+        </ul>
+    {% empty %} 
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}

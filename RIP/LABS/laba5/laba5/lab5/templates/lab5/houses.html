@@ -1,0 +1,21 @@
+{% extends 'lab5\\base.html' %}
+{% load static %}
+
+{% block title %}Список домов{% endblock %}
+
+{% block content %}
+<h5>{{current_date}}</h5>
+<h3>Дома на выбранной улице</h3>
+<ul>
+    {% for house in data.houses %}
+        <li>Дом № {{house.num}}</li>
+            <ul>
+                <li>Владельцы дома: {{house.residents}}</li>
+            </ul> 
+    {% empty %} 
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
