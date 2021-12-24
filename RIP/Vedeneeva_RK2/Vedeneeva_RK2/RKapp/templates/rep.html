@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %} Доступные адреса {% endblock %}
+{% block body %}
+<div class="d-flex flex-row justify-content-between">
+    <div class="p-2"></div>
+    <div class="p-2">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID дома</th>
+                    <th scope="col">Улица</th>
+                    <th scope="col">Номер на улице</th>
+                    <th scope="col">Жители</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hos in data.houses %}
+                <tr>
+                    <th scope="row">{{ hos.idHouse }}</th>
+                    <td>{{ hos.street.StreetName }}</td>
+                    <td>{{ hos.num }}</td>
+                    <td>{{ hos.residents }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="p-2"></div>
+</div>
+{% endblock %}
