@@ -10,14 +10,17 @@ function ListPage() {
     const [StreetNames, setStreetNames] = useState([])
 
     const handleObjectsList = async () => {
+
         const street_list = []
         const Streets = await getObjects()
         for (let Street of Streets) {
-            street_list.push(Street['NameGameTypes']);
+            street_list.push(Street['StreetName']);
         }
         setStreetList(Streets)
-        setGameTypesNames(street_list)
+        setStreetNames(street_list)
+
     }
+
 
     useEffect(()=>{
         handleObjectsList()
